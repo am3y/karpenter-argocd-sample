@@ -1,0 +1,7 @@
+karpenter:
+  serviceAccount:
+    annotations:
+      eks.amazonaws.com/role-arn: "arn:aws:iam::751693746567:role/KarpenterRole"
+  settings:
+    clusterName: "" # This will be overridden by the dynamic value from ApplicationSet
+    interruptionQueue: "karpenter-interruption-queue"
