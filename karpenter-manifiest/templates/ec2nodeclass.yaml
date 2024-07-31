@@ -3,17 +3,17 @@ kind: EC2NodeClass
 metadata:
   name: default
 spec:
-  role: "arn:aws:iam::123456789012:role/Amey-Demo-Cluster-l6ux34nc-karpenter-role"
+  role: "{{ .Values.role }}"
   amiFamily: AL2 
   securityGroupSelectorTerms:
   - tags:
-      karpenter.sh/discovery: Amey-Demo-Cluster-l6ux34nc
+      karpenter.sh/discovery: {{ .Values.clusterName }}
   subnetSelectorTerms:
   - tags:
-      karpenter.sh/discovery: Amey-Demo-Cluster-l6ux34nc
+      karpenter.sh/discovery: {{ .Values.clusterName }}
   tags:
     IntentLabel: apps
     KarpenterNodePoolName: default
     NodeType: default
     intent: apps
-    karpenter.sh/discovery: Amey-Demo-Cluster-l6ux34nc
+    karpenter.sh/discovery: {{ .Values.clusterName }}
